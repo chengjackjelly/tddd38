@@ -8,7 +8,7 @@ using namespace std;
   Your code here
  */
 template <typename T, size_t N>
-T reduce(T (&&p)[N],T first=0, T (*ptr)(T const&,T const&)=nullptr){
+T reduce(T const (&p)[N],T first={}, T (*ptr)(T const&,T const&)=nullptr){
     T sumup=first;
     for(int i=0;i<N;i++){
         if(ptr)
@@ -18,17 +18,7 @@ T reduce(T (&&p)[N],T first=0, T (*ptr)(T const&,T const&)=nullptr){
     }
     return sumup;
  }
-template <typename T, size_t N>
-T reduce(T (&p)[N],T first=0, T (*ptr)(T const&,T const&)=nullptr){
-    T sumup=first;
-    for(int i=0;i<N;i++){
-        if(ptr)
-        sumup=(*ptr)(sumup,*(p+i));
-        else
-        sumup+=*(p+i);
-    }
-    return sumup;
- }
+ //T const(&p)[N]
 
 double multiply(double const& lhs, double const& rhs)
 {
