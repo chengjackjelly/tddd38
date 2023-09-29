@@ -165,7 +165,7 @@ Operator::~Operator()
 {
   delete this->left;
   delete this->right;
-  // std::cout << "Operator destructor" << std::endl;
+  std::cout << "Operator destructor" << std::endl;
 }
 Node *Number::expand()
 {

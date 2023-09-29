@@ -23,6 +23,10 @@ using std::ostream;
 class Node
 {
 public:
+  Node()
+  {
+    std::cout << "test node constructor" << std::endl;
+  }
   virtual ~Node() = default;
   virtual double evaluate() { return 0.0; };
   virtual void print_tree(ostream &, int){};
