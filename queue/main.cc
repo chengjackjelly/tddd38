@@ -20,7 +20,6 @@ int main()
 {
     // create empty queue of int, with a maximum of 5 elements
     Queue<int, 5> q1{};
-
     // const-reference to q1, used to check that all const functions
     // work correctly
     Queue<int, 5> const &q2{q1};
@@ -94,4 +93,6 @@ int main()
     assert(q3.dequeue() == 5);
     assert(q3.empty());
     assert(!q3.full());
+    // Queue<int, 0> q5{};
+
 }
