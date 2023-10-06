@@ -1,4 +1,57 @@
 // Implement is_const, is_pointer, is_array and is_const_pointer here
+struct share_true{
+  static bool const value { true };
+};
+struct share_false{
+  static bool const value { false };
+};
+
+template<typename T>
+struct is_const: share_false{
+};
+
+
+template<typename T>
+struct is_const <T const> : share_true{
+};
+
+
+template<typename T>
+struct is_pointer: share_false{
+  
+};
+
+
+template<typename T>
+struct is_pointer <T*> : share_true {
+
+};
+
+template<typename T>
+struct is_pointer <T* const> : share_true {
+
+};
+template<typename T>
+struct is_array: share_false{
+  
+};
+
+
+template<typename T,int N>
+struct is_array <T[N]> : share_true {
+
+};
+
+template<typename T>
+struct is_const_pointer: share_false{
+  
+};
+
+
+template<typename T>
+struct is_const_pointer <T* const> : share_true {
+};
+
 
 int main()
 { 
